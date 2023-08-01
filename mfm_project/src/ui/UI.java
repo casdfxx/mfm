@@ -65,7 +65,7 @@ public class UI {
 	}
 	
 	public UI(){
-		
+		f.setTitle("mfm V1.4");
 		try {
 			String strCount = cmdExec("echo %mfm_count%");
 			fileCount=Integer.parseInt(strCount);
