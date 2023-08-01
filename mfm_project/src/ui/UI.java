@@ -116,11 +116,11 @@ public class UI {
 					l.removeAllElements();
 					String[] c=jtf.getText().split(" ");
 					List<MemoryFregment> mf=mfm.select(c);
-					if(mf.size()>=1){
-						Clipboard cp=Toolkit.getDefaultToolkit().getSystemClipboard();
-						StringSelection ss=new StringSelection(mf.get(0).content);
-						cp.setContents(ss, null);
-					}
+//					if(mf.size()>=1){
+//						Clipboard cp=Toolkit.getDefaultToolkit().getSystemClipboard();
+//						StringSelection ss=new StringSelection(mf.get(0).content);
+//						cp.setContents(ss, null);
+//					}
 					for(int i=0;i<mf.size();i++){
 						l.addElement(mf.get(i));
 					}

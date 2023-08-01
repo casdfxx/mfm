@@ -20,13 +20,14 @@ mfm_count:文件最大序号，自增。
 运行方法：
 	一、
 	建议写成.bat，并添加到path中快捷调用：
-	start javaw  ui/UI
+	start javaw -Dfile.encoding=utf-8  ui/UI
 
 	二、
 	如果可以导出为.jar 运行方法：
 	导出为mfm.jar后双击启动。或者使用bat方式：
-	start javaw -jar mfm.jar
-
+	start javaw -Dfile.encoding=utf-8 -jar mfm.jar
+	
+	(使用-Dfile.encoding=utf-8是为了防止出现乱码)
 
 
 /**************注意**************/

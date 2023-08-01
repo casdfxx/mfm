@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.HashSet;
@@ -15,19 +16,19 @@ import java.util.Set;
 public class MemoryFregment {
 	public boolean isChange=false;
 	/**
-	 * ¼ÇÒäËéÆ¬µÄÂ·¾¶
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¬ï¿½ï¿½Â·ï¿½ï¿½
 	 */
 	public String path;
 	/**
-	 * ¼ÇÒäËéÆ¬µÄÃû³Æ£¬Ò»°ãÎªÒ»¸öÎ¨Ò»Êı×Ö×Ö·û
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¬ï¿½ï¿½ï¿½ï¿½ï¿½Æ£ï¿½Ò»ï¿½ï¿½ÎªÒ»ï¿½ï¿½Î¨Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½
 	 */
 	public String fileName;
 	/**
-	 * ¼ÇÒäËéÆ¬µÄĞÅÏ¢£¬ÒÔHashSetµÄ·½Ê½´æ´¢£¬±íÊ¾²»ÄÜÖØ¸´
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¬ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½HashSetï¿½Ä·ï¿½Ê½ï¿½æ´¢ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½Ø¸ï¿½
 	 */
 	public Set<String> info;
 	/**
-	 * ¼ÇÒäËéÆ¬µÄÄÚÈİ
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	public String content;
 	
@@ -41,21 +42,18 @@ public class MemoryFregment {
 		
 		try {
 			br=new BufferedReader(new FileReader(path));
-			//br=Files.newBufferedReader(Paths.get(path));²»Ö§³ÖÖĞÎÄ
+			//br=Files.newBufferedReader(Paths.get(path));ï¿½ï¿½Ö§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			info=getInfo(path);
 			content=getContent(path);
 			br.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-		
-		
-		
 	};
+	
 	private Set<String> getInfo(String path){
 		try{
-			//1¡¢»ñÈ¡ÎÄ¼şµÄËùÓĞÍ·ĞÅÏ¢,ÎÄ¼şÍ·ºÍÎÄ¼şÌåÒÔÒ»¸ö¿ÕĞĞÎª·Ö¸ô
+			//1ï¿½ï¿½ï¿½ï¿½È¡ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½Ï¢,ï¿½Ä¼ï¿½Í·ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½Ö¸ï¿½
 			StringBuilder sb=new StringBuilder();
 			String content;
 			while((content=br.readLine())!=null){
@@ -65,12 +63,12 @@ public class MemoryFregment {
 				info.add(content);
 //				sb.append(content);
 			}
-			//2¡¢½«Ëù»ñµÃµÄĞÅÏ¢ÒÔ','·Ö³ÉÒ»¸öÒ»¸öµÄString·ÅÈëinfoÖĞ
+			//2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ãµï¿½ï¿½ï¿½Ï¢ï¿½ï¿½','ï¿½Ö³ï¿½Ò»ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Stringï¿½ï¿½ï¿½ï¿½infoï¿½ï¿½
 //			content=sb.toString();
 //			for(String t:content.split(",")){
 //				info.add(t);
 //			}
-			//3¡¢·´»Ø
+			//3ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			return info;
 		}catch(IOException e){
 			return null;
@@ -91,24 +89,24 @@ public class MemoryFregment {
 	}
 	
 	/**
-	 * Ôö¼Ó¼ÇÒäÃèÊö
-	 * @param con String ÒªÔö¼ÓµÄÄÚÈİ£¬ÏÈÔÚÄÚ´æÖĞÌí¼Ó£¬ºóµ÷ÓÃ
-	 * MemoryFregmentManagmentÖĞµÄ·½·¨±£´æÔÚ´ÅÅÌ£¬ÓÃ','¸ô¿ª¡£
-	 * @return booleanÖµ£¬ ÊÇ·ñ±£´æ³É¹¦
+	 * ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	 * @param con String Òªï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½ï¿½İ£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½Ó£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	 * MemoryFregmentManagmentï¿½ĞµÄ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ï¿½Ì£ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	 * @return booleanÖµï¿½ï¿½ ï¿½Ç·ñ±£´ï¿½É¹ï¿½
 	 */
 	public boolean insert(String con){
-		//1¡¢ÏÈ¼ì²éÒª²åÈëµÄÄÚÈİÊÇ·ñÒÑ¾­´æÔÚ£¬Èô´æÔÚÔòÍË³ö
+		//1ï¿½ï¿½ï¿½È¼ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½Ú£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë³ï¿½
 		if(info.contains(con)) return false;
-		//2¡¢¸Ä±äÄÚ´æ£¬´ÅÅÌÖĞµÄ¸Ä±äÁô¸øMemoryFregmentManagment
+		//2ï¿½ï¿½ï¿½Ä±ï¿½ï¿½Ú´æ£¬ï¿½ï¿½ï¿½ï¿½ï¿½ĞµÄ¸Ä±ï¿½ï¿½ï¿½ï¿½ï¿½MemoryFregmentManagment
 		isChange=true;
 		info.add(con);
 		return true;
 	}
 
 	/**
-	 * É¾Ö¸¶¨³ı¼ÇÒäÃèÊö
-	 * @param con String ÒªÉ¾³ıµÄ¼ÇÒäÃèÊö
-	 * @return boolean ÊÇ·ñÉ¾³ı³É¹¦
+	 * É¾Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	 * @param con String ÒªÉ¾ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	 * @return boolean ï¿½Ç·ï¿½É¾ï¿½ï¿½ï¿½É¹ï¿½
 	 */
 	public boolean delete(String con){
 		if(!info.contains(con)) return false;
@@ -119,9 +117,9 @@ public class MemoryFregment {
 	
 	/**
 	 * 
-	 * @param old String ¾ÉÖµ
-	 * @param n String ĞÂÖµ
-	 * @return boolean ÊÇ·ñ³É¹¦
+	 * @param old String ï¿½ï¿½Öµ
+	 * @param n String ï¿½ï¿½Öµ
+	 * @return boolean ï¿½Ç·ï¿½É¹ï¿½
 	 */
 	public boolean updata(String old,String n){
 		if(!info.contains(old)) return false;
@@ -132,8 +130,8 @@ public class MemoryFregment {
 	}
 	
 	/**
-	 * É¾³ıµ±Ç°Õû¸ö¼ÇÒäËéÆ¬
-	 * @return ÊÇ·ñ³É¹¦
+	 * É¾ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¬
+	 * @return ï¿½Ç·ï¿½É¹ï¿½
 	 */
 	public boolean drop(){
 		try {
@@ -145,8 +143,8 @@ public class MemoryFregment {
 		}
 	}
 	/**
-	 * ±£´æ¸ü¸Ä
-	 * @return ³É¹¦ true,Ê§°Ü false;
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	 * @return ï¿½É¹ï¿½ true,Ê§ï¿½ï¿½ false;
 	 */
 	public boolean save(){
 		try {
@@ -166,7 +164,16 @@ public class MemoryFregment {
 		
 	}
 	public String toString(){
-		return content;
+		
+		try {
+			byte[] temp = content.getBytes("UTF-8");
+			String ret  = new String(temp, "UTF-8");
+			return ret;
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "";
 	}
 	public static void main(String[] args) {
 		MemoryFregment mf=new MemoryFregment("E:/la.txt");

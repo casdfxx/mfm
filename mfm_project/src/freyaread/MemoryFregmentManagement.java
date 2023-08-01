@@ -25,8 +25,8 @@ public class MemoryFregmentManagement {
 		load();
 	}
 	/**
-	 * ¼ÓÔØÎÄ¼ş¿âµ½map
-	 * @return ³É¹¦ true,Ê§°Ü false;
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½âµ½map
+	 * @return ï¿½É¹ï¿½ true,Ê§ï¿½ï¿½ false;
 	 */
 	public boolean load(){
 		try{
@@ -52,9 +52,9 @@ public class MemoryFregmentManagement {
 
 	}
 	/**
-	 * ¸ù¾İstr£¨info£©²éÕÒmapÖĞÄÄ¸öMemoryFregmentÓëÖ®ÏàËÆ
+	 * ï¿½ï¿½ï¿½ï¿½strï¿½ï¿½infoï¿½ï¿½ï¿½ï¿½ï¿½ï¿½mapï¿½ï¿½ï¿½Ä¸ï¿½MemoryFregmentï¿½ï¿½Ö®ï¿½ï¿½ï¿½ï¿½
 	 * @param str
-	 * @return ÕÒµ½Ôò·µ»ØMemoryFregment£¬ÕÒ²»µ½Ôò·µ»Ønull
+	 * @return ï¿½Òµï¿½ï¿½ò·µ»ï¿½MemoryFregmentï¿½ï¿½ï¿½Ò²ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½null
 	 */
 	public List<MemoryFregment> select(String str){
 		List<MemoryFregment> mf=new ArrayList<>();
@@ -79,13 +79,14 @@ public class MemoryFregmentManagement {
 			}
 			if(mingzhong==array.length){
 				mf.add(map.get(e));
+				
 			}
 		});
 		return mf;
 	}
 	
 	/**
-	 * ±éÀúmapÀïËùÓĞµÄMemoryFregment£¬ÈôÆäÖĞµÄchange==trueÊ±£¬ÔòĞŞ¸Ä¡£
+	 * ï¿½ï¿½ï¿½ï¿½mapï¿½ï¿½ï¿½ï¿½ï¿½Ğµï¿½MemoryFregmentï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğµï¿½change==trueÊ±ï¿½ï¿½ï¿½ï¿½ï¿½Ş¸Ä¡ï¿½
 	 * @return
 	 */
 	public boolean saveAll(){
@@ -105,13 +106,13 @@ public class MemoryFregmentManagement {
 			try{
 				String content=scan.nextLine();
 				String c[]=content.split(" ");
-				System.out.println("ÊıÁ¿£º mfm.select(c): "+mfm.select(c).size());
+				System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ mfm.select(c): "+mfm.select(c).size());
 				StringSelection ss=new StringSelection(mfm.select(c).get(0).content);
 				cb.setContents(ss, null);
 			}catch(Exception e){
 				continue;
 			}
 		}
-//		System.out.println(mfm.select("·¶ÖÙÑÍ").get(0).content);
+//		System.out.println(mfm.select("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½").get(0).content);
 	}
 }
